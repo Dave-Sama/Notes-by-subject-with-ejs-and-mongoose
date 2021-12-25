@@ -1,6 +1,6 @@
 <%- include("header") -%>
 	<body>
-        <div class="box" id="heading">
+        <div class="box-header" id="heading">
 
             <h1><%=listTitle%></h1>
         </div>
@@ -11,6 +11,9 @@
                     <input type="checkbox" class="" name="value" value=<%= newItem[i]._id %>  onchange="this.form.submit()">
                     <input type="hidden" name="type" value=<%=listTitle%>> 
                     <p name="check"><%=newItem[i].model.name%></p>
+                    <a href="#" id="update">
+                        <i class="far fa-comment-dots"></i>
+                    </a>
                 </div>
             </form>
             <%}%>
@@ -19,7 +22,12 @@
         <div class="box">
             <form class="item" action="/" method="post">
                 <input type="text" class = "textInput" name="add" placeholder="New Item" autocomplete="off"/>
-                <button type="submit" name="type" value=<%=listTitle%>>+</button>
+                <button class="newItem" type="submit" name="type" value=<%=listTitle%>>+</button>
+            </form>
+            <form class="item" action="/add-note" method="post">
+                <input type="text" class = "textInput" name="add" placeholder="Search Notes" autocomplete="off"/>
+                <button class="search" type="submit" name="type" value=<%=listTitle%>>
+                    <i class="fab fa-searchengin"></i></button>
             </form>
         </div>  
 	</body>

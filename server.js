@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { connectDB } = require('./db/mongoConnect');
-const date = require(__dirname + '/date.js');
 const _ = require('lodash');
 const {
 	AddItem,
@@ -14,7 +13,6 @@ const {
 } = require('./db/CRUD');
 const { models } = require('./db/models');
 require('dotenv').config();
-// const data = require('./data');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -27,7 +25,10 @@ app.get('/', (req, res) => {
 			console.log(err);
 			res.render('list', { listTitle: 'Something went wrong.', newItem: [] });
 		} else {
-			res.render('list', { listTitle: 'Todos', newItem: result });
+			res.render('list', {
+				listTitle: 'Todos',
+				newItem: result,
+			});
 		}
 	});
 });
@@ -44,7 +45,10 @@ app.get('/:customListName', (req, res) => {
 				AddItem(new models.List({ name: customListName, model: newItem }));
 				res.redirect('/' + _.lowerCase(customListName));
 			} else {
-				res.render('list', { listTitle: customListName, newItem: result });
+				res.render('list', {
+					listTitle: customListName,
+					newItem: result,
+				});
 			}
 		}
 	});
@@ -70,6 +74,12 @@ app.post('/', (req, res) => {
 	} else {
 		res.redirect('/' + _.lowerCase(type));
 	}
+});
+
+app.post('/add-note', (req, res) => {
+	const { add } = req.body;
+	const newPath = _.kebabCase(add);
+	res.redirect('/' + newPath);
 });
 
 // Delete from the "List" by retrieving a specific _id from the HTML file

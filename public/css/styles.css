@@ -5,6 +5,36 @@ html {
 	font-family: 'helvetica neue';
 }
 
+#update {
+	margin-right: 25px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	box-shadow: 1px 1px 2px rgb(65, 60, 60);
+}
+
+.fa-exchange-alt {
+	color: rgb(0, 0, 0);
+	/* text-shadow: 0 0 1px #00204a; */
+}
+
+.fab:hover {
+	cursor: pointer;
+}
+
+.newItem:hover {
+	cursor: pointer;
+}
+
+.search {
+	background-color: #f59d9d;
+}
+
 h1 {
 	color: #fff;
 	padding: 10px;
@@ -16,6 +46,12 @@ h1 {
 	background: white;
 	border-radius: 5px;
 	box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+.box-header {
+	margin: auto;
+	width: 400px;
+	background: white;
+	border-radius: 5px;
 }
 
 #heading {
@@ -30,12 +66,13 @@ h1 {
 	border-bottom: 2px solid #f1f1f1;
 	background-color: #ffffff;
 	opacity: 0.6;
-	transition: 0.5s ease-out;
+	transition: 0.9s ease-out all;
 }
 
 .item:hover {
 	opacity: 1;
-	background-color: #f8daff;
+	background: linear-gradient(to left, #f8daff, #ffffff);
+	/* background-color: #f8daff; */
 }
 
 .item:last-child {
@@ -57,6 +94,7 @@ p {
 	font-size: 20px;
 	font-weight: 200;
 	color: #00204a;
+	width: 300px;
 }
 
 .add {
